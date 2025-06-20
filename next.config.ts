@@ -42,7 +42,7 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   // Performance optimizations
-  swcMinify: true,
+  // swcMinify: true,
   // Optional: For static export (if needed)
   // output: 'export',
   // trailingSlash: true,
