@@ -1,4 +1,7 @@
 // next.config.js
+
+import { hostname } from "os"
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -28,6 +31,12 @@ const nextConfig = {
         port: '',
         pathname: '/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.alphacoders.com',
+        port: '',
+        pathname: '/**'
+      }
     ],
     // Optional: Image optimization settings
     formats: ['image/webp', 'image/avif'],

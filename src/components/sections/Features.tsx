@@ -42,7 +42,7 @@ const achievements = [
 export default function Features() {
   return (
     <section
-      className="py-16 md:py-20"
+      className="py-16 md:py-20 px-[4rem]"
       style={{ backgroundColor: "var(--color-background)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

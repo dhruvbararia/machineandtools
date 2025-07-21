@@ -123,14 +123,27 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer
+      style={{
+        backgroundColor: "var(--color-gray-900)",
+        color: "var(--color-text-inverse)",
+      }}
+    >
       {/* Newsletter Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 py-12">
+      <div
+        className="py-12"
+        style={{ background: "var(--color-hero-bg-gradient)" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-              <p className="text-blue-100">
+              <h3
+                className="text-2xl font-bold mb-2"
+                style={{ color: "var(--color-text-inverse)" }}
+              >
+                Stay Updated
+              </h3>
+              <p style={{ color: "var(--color-primary-100)" }}>
                 Get the latest updates on new products, industry insights, and
                 special offers.
               </p>
@@ -145,15 +158,37 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 required
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2"
+                style={{
+                  color: "var(--color-text-primary)",
+                  backgroundColor: "var(--color-surface)",
+                  borderRadius: "var(--radius-lg)",
+                  border: "none",
+                }}
+                onFocus={(e) => {
+                  e.target.style.boxShadow =
+                    "0 0 0 2px var(--color-primary-300)";
+                }}
+                onBlur={(e) => {
+                  e.target.style.boxShadow = "none";
+                }}
               />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors flex items-center justify-center disabled:opacity-50"
+                className="px-6 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center disabled:opacity-50"
+                style={{
+                  backgroundColor: "var(--color-secondary-400)",
+                  color: "var(--color-primary-900)",
+                  borderRadius: "var(--radius-lg)",
+                  border: "none",
+                }}
               >
                 {isSubmitting ? (
-                  <div className="w-4 h-4 border-2 border-blue-900 border-t-transparent rounded-full animate-spin mr-2" />
+                  <div
+                    className="w-4 h-4 border-2 border-t-transparent rounded-full animate-spin mr-2"
+                    style={{ borderColor: "var(--color-primary-900)" }}
+                  />
                 ) : (
                   <Send className="w-4 h-4 mr-2" />
                 )}
@@ -171,8 +206,16 @@ export default function Footer() {
             {/* Company Information */}
             <div className="lg:col-span-1">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-4">{COMPANY_INFO.name}</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <h3
+                  className="text-2xl font-bold mb-4"
+                  style={{ color: "var(--color-text-inverse)" }}
+                >
+                  {COMPANY_INFO.name}
+                </h3>
+                <p
+                  className="mb-6 leading-relaxed"
+                  style={{ color: "var(--color-gray-300)" }}
+                >
                   Leading manufacturer of chain making and wire drawing machines
                   since {COMPANY_INFO.founded}. Trusted by customers worldwide
                   for quality, reliability, and exceptional service.
@@ -182,22 +225,45 @@ export default function Footer() {
               {/* Contact Information */}
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 mr-3 mt-1 text-blue-400 flex-shrink-0" />
+                  <MapPin
+                    className="w-5 h-5 mr-3 mt-1 flex-shrink-0"
+                    style={{ color: "var(--color-primary-400)" }}
+                  />
                   <div>
-                    <div className="font-medium text-white">Our Location</div>
-                    <div className="text-gray-300 text-sm">
+                    <div
+                      className="font-medium"
+                      style={{ color: "var(--color-text-inverse)" }}
+                    >
+                      Our Location
+                    </div>
+                    <div
+                      className="text-sm"
+                      style={{ color: "var(--color-gray-300)" }}
+                    >
                       {COMPANY_INFO.location}
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="w-5 h-5 mr-3 mt-1 text-blue-400 flex-shrink-0" />
+                  <Phone
+                    className="w-5 h-5 mr-3 mt-1 flex-shrink-0"
+                    style={{ color: "var(--color-primary-400)" }}
+                  />
                   <div>
-                    <div className="font-medium text-white">Call Us</div>
+                    <div
+                      className="font-medium"
+                      style={{ color: "var(--color-text-inverse)" }}
+                    >
+                      Call Us
+                    </div>
                     <Link
                       href={`tel:${COMPANY_INFO.phone}`}
-                      className="text-gray-300 text-sm hover:text-blue-400 transition-colors"
+                      className="text-sm transition-colors"
+                      style={{
+                        color: "var(--color-gray-300)",
+                        textDecoration: "none",
+                      }}
                     >
                       {COMPANY_INFO.phone}
                     </Link>
@@ -205,12 +271,24 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-start">
-                  <Mail className="w-5 h-5 mr-3 mt-1 text-blue-400 flex-shrink-0" />
+                  <Mail
+                    className="w-5 h-5 mr-3 mt-1 flex-shrink-0"
+                    style={{ color: "var(--color-primary-400)" }}
+                  />
                   <div>
-                    <div className="font-medium text-white">Email Us</div>
+                    <div
+                      className="font-medium"
+                      style={{ color: "var(--color-text-inverse)" }}
+                    >
+                      Email Us
+                    </div>
                     <Link
                       href={`mailto:${COMPANY_INFO.email}`}
-                      className="text-gray-300 text-sm hover:text-blue-400 transition-colors"
+                      className="text-sm transition-colors"
+                      style={{
+                        color: "var(--color-gray-300)",
+                        textDecoration: "none",
+                      }}
                     >
                       {COMPANY_INFO.email}
                     </Link>
@@ -218,10 +296,21 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 mr-3 mt-1 text-blue-400 flex-shrink-0" />
+                  <Clock
+                    className="w-5 h-5 mr-3 mt-1 flex-shrink-0"
+                    style={{ color: "var(--color-primary-400)" }}
+                  />
                   <div>
-                    <div className="font-medium text-white">Business Hours</div>
-                    <div className="text-gray-300 text-sm">
+                    <div
+                      className="font-medium"
+                      style={{ color: "var(--color-text-inverse)" }}
+                    >
+                      Business Hours
+                    </div>
+                    <div
+                      className="text-sm"
+                      style={{ color: "var(--color-gray-300)" }}
+                    >
                       <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
                       <div>Sat: 9:00 AM - 2:00 PM</div>
                       <div>Sun: Closed</div>
@@ -232,13 +321,22 @@ export default function Footer() {
 
               {/* Social Media Links */}
               <div className="mt-8">
-                <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
+                <h4
+                  className="font-semibold mb-4"
+                  style={{ color: "var(--color-text-inverse)" }}
+                >
+                  Follow Us
+                </h4>
                 <div className="flex space-x-3">
                   {socialLinks.map((social) => (
                     <Link
                       key={social.name}
                       href={social.href}
-                      className={`bg-gray-800 p-3 rounded-full transition-colors ${social.color}`}
+                      className="p-3 rounded-full transition-colors"
+                      style={{
+                        backgroundColor: "var(--color-gray-800)",
+                        borderRadius: "var(--radius-2xl)",
+                      }}
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -250,7 +348,10 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-semibold mb-6 text-white text-lg">
+              <h4
+                className="font-semibold mb-6 text-lg"
+                style={{ color: "var(--color-text-inverse)" }}
+              >
                 Quick Links
               </h4>
               <div className="space-y-3">
@@ -258,26 +359,37 @@ export default function Footer() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                    className="block transition-colors text-sm"
+                    style={{
+                      color: "var(--color-gray-300)",
+                      textDecoration: "none",
+                    }}
                   >
                     {link.label}
                   </Link>
                 ))}
-                {quickLinks.map((link) => (
+                {/* {quickLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                    className="block transition-colors text-sm"
+                    style={{
+                      color: "var(--color-gray-300)",
+                      textDecoration: "none",
+                    }}
                   >
                     {link.name}
                   </Link>
-                ))}
+                ))} */}
               </div>
             </div>
 
             {/* Our Products */}
             <div>
-              <h4 className="font-semibold mb-6 text-white text-lg">
+              <h4
+                className="font-semibold mb-6 text-lg"
+                style={{ color: "var(--color-text-inverse)" }}
+              >
                 Our Products
               </h4>
               <div className="space-y-3">
@@ -285,24 +397,44 @@ export default function Footer() {
                   <Link
                     key={product.href}
                     href={product.href}
-                    className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                    className="block transition-colors text-sm"
+                    style={{
+                      color: "var(--color-gray-300)",
+                      textDecoration: "none",
+                    }}
                   >
                     {product.name}
                   </Link>
                 ))}
               </div>
 
-              <div className="mt-6 p-4 bg-gray-800 rounded-lg">
-                <h5 className="font-semibold text-white mb-2">
+              <div
+                className="mt-6 p-4 rounded-lg"
+                style={{
+                  backgroundColor: "var(--color-gray-800)",
+                  borderRadius: "var(--radius-lg)",
+                }}
+              >
+                <h5
+                  className="font-semibold mb-2"
+                  style={{ color: "var(--color-text-inverse)" }}
+                >
                   Need Custom Solution?
                 </h5>
-                <p className="text-gray-300 text-sm mb-3">
+                <p
+                  className="text-sm mb-3"
+                  style={{ color: "var(--color-gray-300)" }}
+                >
                   We also manufacture customized machines as per your specific
                   requirements.
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium"
+                  className="inline-flex items-center transition-colors text-sm font-medium"
+                  style={{
+                    color: "var(--color-primary-400)",
+                    textDecoration: "none",
+                  }}
                 >
                   Get Custom Quote <ArrowRight className="ml-1 w-4 h-4" />
                 </Link>
@@ -311,7 +443,10 @@ export default function Footer() {
 
             {/* Our Services */}
             <div>
-              <h4 className="font-semibold mb-6 text-white text-lg">
+              <h4
+                className="font-semibold mb-6 text-lg"
+                style={{ color: "var(--color-text-inverse)" }}
+              >
                 Our Services
               </h4>
               <div className="space-y-3">
@@ -319,7 +454,11 @@ export default function Footer() {
                   <Link
                     key={service.href}
                     href={service.href}
-                    className="block text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                    className="block transition-colors text-sm"
+                    style={{
+                      color: "var(--color-gray-300)",
+                      textDecoration: "none",
+                    }}
                   >
                     {service.name}
                   </Link>
@@ -328,30 +467,58 @@ export default function Footer() {
 
               {/* Certifications */}
               <div className="mt-8">
-                <h5 className="font-semibold mb-4 text-white">
+                <h5
+                  className="font-semibold mb-4"
+                  style={{ color: "var(--color-text-inverse)" }}
+                >
                   Certifications
                 </h5>
                 <div className="space-y-2">
                   {certifications.map((cert, index) => (
                     <div key={index} className="flex items-center">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
-                      <span className="text-gray-300 text-sm">{cert}</span>
+                      <div
+                        className="w-2 h-2 rounded-full mr-3"
+                        style={{ backgroundColor: "var(--color-primary-400)" }}
+                      ></div>
+                      <span
+                        className="text-sm"
+                        style={{ color: "var(--color-gray-300)" }}
+                      >
+                        {cert}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Emergency Contact */}
-              <div className="mt-6 p-4 bg-red-900/20 border border-red-700/30 rounded-lg">
-                <h5 className="font-semibold text-red-400 mb-2">
+              <div
+                className="mt-6 p-4 border rounded-lg"
+                style={{
+                  backgroundColor: "rgba(220, 38, 38, 0.1)",
+                  borderColor: "rgba(185, 28, 28, 0.3)",
+                  borderRadius: "var(--radius-lg)",
+                }}
+              >
+                <h5
+                  className="font-semibold mb-2"
+                  style={{ color: "var(--color-error-500)" }}
+                >
                   24/7 Emergency Support
                 </h5>
-                <p className="text-gray-300 text-sm mb-2">
+                <p
+                  className="text-sm mb-2"
+                  style={{ color: "var(--color-gray-300)" }}
+                >
                   For urgent technical assistance
                 </p>
                 <Link
                   href="tel:+91-XXXXXXXXXX"
-                  className="text-red-400 font-semibold text-sm hover:text-red-300 transition-colors"
+                  className="font-semibold text-sm transition-colors"
+                  style={{
+                    color: "var(--color-error-500)",
+                    textDecoration: "none",
+                  }}
                 >
                   Emergency Hotline: +91-XXXXXXXXXX
                 </Link>
@@ -362,12 +529,18 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-800">
+      <div
+        className="border-t"
+        style={{ borderColor: "var(--color-gray-800)" }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid md:grid-cols-3 gap-6 items-center">
             {/* Copyright */}
             <div className="text-center md:text-left">
-              <div className="text-gray-400 text-sm">
+              <div
+                className="text-sm"
+                style={{ color: "var(--color-gray-400)" }}
+              >
                 <p>
                   &copy; {currentYear} {COMPANY_INFO.name}. All rights reserved.
                 </p>
@@ -378,43 +551,79 @@ export default function Footer() {
             {/* Trust Badges */}
             <div className="text-center">
               <div className="flex justify-center items-center space-x-4">
-                <div className="flex items-center bg-gray-800 px-3 py-2 rounded">
-                  <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                  <span className="text-xs text-gray-300">
+                <div
+                  className="flex items-center px-3 py-2 rounded"
+                  style={{ backgroundColor: "var(--color-gray-800)" }}
+                >
+                  <div
+                    className="w-3 h-3 rounded-full mr-2"
+                    style={{ backgroundColor: "var(--color-success-500)" }}
+                  ></div>
+                  <span
+                    className="text-xs"
+                    style={{ color: "var(--color-gray-300)" }}
+                  >
                     Trusted Since 2013
                   </span>
                 </div>
-                <div className="flex items-center bg-gray-800 px-3 py-2 rounded">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                  <span className="text-xs text-gray-300">500+ Customers</span>
+                <div
+                  className="flex items-center px-3 py-2 rounded"
+                  style={{ backgroundColor: "var(--color-gray-800)" }}
+                >
+                  <div
+                    className="w-3 h-3 rounded-full mr-2"
+                    style={{ backgroundColor: "var(--color-primary-500)" }}
+                  ></div>
+                  <span
+                    className="text-xs"
+                    style={{ color: "var(--color-gray-300)" }}
+                  >
+                    500+ Customers
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Legal Links */}
             <div className="text-center md:text-right">
-              <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm text-gray-400">
+              <div className="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
                 <Link
                   href="/privacy-policy"
-                  className="hover:text-blue-400 transition-colors"
+                  className="transition-colors"
+                  style={{
+                    color: "var(--color-gray-400)",
+                    textDecoration: "none",
+                  }}
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href="/terms-conditions"
-                  className="hover:text-blue-400 transition-colors"
+                  className="transition-colors"
+                  style={{
+                    color: "var(--color-gray-400)",
+                    textDecoration: "none",
+                  }}
                 >
                   Terms & Conditions
                 </Link>
                 <Link
                   href="/refund-policy"
-                  className="hover:text-blue-400 transition-colors"
+                  className="transition-colors"
+                  style={{
+                    color: "var(--color-gray-400)",
+                    textDecoration: "none",
+                  }}
                 >
                   Refund Policy
                 </Link>
                 <Link
                   href="/sitemap"
-                  className="hover:text-blue-400 transition-colors"
+                  className="transition-colors"
+                  style={{
+                    color: "var(--color-gray-400)",
+                    textDecoration: "none",
+                  }}
                 >
                   Sitemap
                 </Link>
@@ -423,13 +632,22 @@ export default function Footer() {
           </div>
 
           {/* Additional Info */}
-          <div className="border-t border-gray-800 mt-6 pt-6">
+          <div
+            className="border-t mt-6 pt-6"
+            style={{ borderColor: "var(--color-gray-800)" }}
+          >
             <div className="grid md:grid-cols-2 gap-6 text-center md:text-left">
               <div>
-                <h5 className="text-white font-semibold mb-2">
+                <h5
+                  className="font-semibold mb-2"
+                  style={{ color: "var(--color-text-inverse)" }}
+                >
                   Manufacturing Excellence
                 </h5>
-                <p className="text-gray-400 text-sm">
+                <p
+                  className="text-sm"
+                  style={{ color: "var(--color-gray-400)" }}
+                >
                   Precision engineered machines manufactured in our
                   state-of-the-art facility in Agra, using the finest materials
                   and latest technology to ensure superior quality and
@@ -437,8 +655,16 @@ export default function Footer() {
                 </p>
               </div>
               <div>
-                <h5 className="text-white font-semibold mb-2">Global Reach</h5>
-                <p className="text-gray-400 text-sm">
+                <h5
+                  className="font-semibold mb-2"
+                  style={{ color: "var(--color-text-inverse)" }}
+                >
+                  Global Reach
+                </h5>
+                <p
+                  className="text-sm"
+                  style={{ color: "var(--color-gray-400)" }}
+                >
                   Serving customers across India and international markets
                   including Middle East, Southeast Asia, and Africa with
                   reliable shipping and comprehensive support services.
@@ -452,7 +678,14 @@ export default function Footer() {
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50 hover:scale-110 transform duration-300"
+        className="fixed bottom-6 right-6 p-3 rounded-full shadow-lg transition-colors z-50 hover:scale-110 transform duration-300"
+        style={{
+          backgroundColor: "var(--color-primary-600)",
+          color: "var(--color-text-inverse)",
+          borderRadius: "var(--radius-2xl)",
+          boxShadow: "var(--shadow-lg)",
+          border: "none",
+        }}
         aria-label="Back to top"
       >
         <ArrowRight className="w-5 h-5 transform -rotate-90" />
